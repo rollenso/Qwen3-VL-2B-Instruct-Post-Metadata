@@ -2,14 +2,22 @@
 
 🌿 Model Details
 
-Base Model: Qwen/Qwen3-VL-2B-Instruct (fine-tuned via Unsloth) Architecture: Autoregressive Vision-Language Model (Vision Transformer + Multimodal Projector + Causal LLM) Parameter Count: 2.2B (1.5 GB in 4-bit quantized / 4.5 GB in bfloat16) Fine-Tuning Method: Supervised Fine-Tuning (SFT / LoRA) via knowledge distillation from a larger Qwen-VL teacher Target Domain: In-the-wild Multimodal UGC (variable resolution, uncurated mobile photography, low-light/noisy captures, digital art) Primary Use Case: Automated post metadata generation (structured titles, descriptive body captions, and search tags) for social networks, content publishing workflows, and digital media feeds. Hardware Footprint: Ultra-low VRAM consumption (~2–3 GB in 4-bit) on budget or shared GPU instances.
+Base Model: Qwen/Qwen3-VL-2B-Instruct (fine-tuned via Unsloth)
+Architecture: Autoregressive Vision-Language Model (Vision Transformer + Multimodal Projector + Causal LLM)
+Parameter Count: 2.2B (1.5 GB in 4-bit quantized / 4.5 GB in bfloat16)
+Fine-Tuning Method: Supervised Fine-Tuning (SFT / LoRA) via knowledge distillation from a larger Qwen-VL teacher
+Target Domain: In-the-wild Multimodal UGC (variable resolution, uncurated mobile photography, low-light/noisy captures, digital art)
+Primary Use Case: Automated post metadata generation (structured titles, descriptive body captions, and search tags) for social networks, content publishing workflows, and digital media feeds.
+Hardware Footprint: Ultra-low VRAM consumption (~2–3 GB in 4-bit) on budget or shared GPU instances.
 
 🍃 Source files
 * adapter: https://huggingface.co/rollenso/Qwen3-VL-2B-Instruct-Post-Metadata
 * dataset (.npy included): https://huggingface.co/datasets/rollenso/Qwen3-VL-2B-Instruct-Post-Metadata-dataset-npy
 
-🌱 Usage (Inference)
 
+🌱 Usage (Inference) 
+
+```python
 import torch
 from PIL import Image
 from transformers import (
@@ -79,3 +87,7 @@ output_text = processor.batch_decode(
 )
 
 print(output_text[0])
+```
+
+
+
